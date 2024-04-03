@@ -28,7 +28,7 @@ function extractMatches(obj, parentKey, matches) {
   for (const key in obj) {
     if (typeof obj[key] === 'object' && obj[key] !== null) {
       extractMatches(obj[key], parentKey ? `${parentKey}.${key}` : key, matches);
-    } else if (typeof obj[key] === 'string' && obj[key].startsWith('MFFT_TEST')) {
+    } else if (typeof obj[key] === 'string' && obj[key] === 'MFFT_TEST') {
       mfftLabelFormatter(obj, key);
     } else if (typeof obj[key] === 'string') {
       const match = CHART_JS_PATTERN.exec(`"${obj[key]}"`);
