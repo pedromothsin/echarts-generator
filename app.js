@@ -71,6 +71,12 @@ app.get("/ping", (req, res) => {
   res.status(200).send("pong!");
 });
 
+// webhook route that answers a success message and logs the incoming request
+app.post("/webhook", (req, res) => {
+  console.log("Incoming webhook request:", req.body);
+  res.status(200).send("Webhook received!");
+});
+
 app.post("/generate-svg", (req, res) => {
   try {
     const echarts = require('echarts');
